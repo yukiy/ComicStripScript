@@ -14,11 +14,11 @@ Starring mickey as M
 Starring pikachu as P
 
 ---1
-M : ('-') \<("HELLO \nMY NAME IS \nMICKEY.")
+M : ('-') < ("HELLO \nMY NAME IS \nMICKEY.")
 
 ---2
-P : ("WHAT!?\n ARE YOU MICKEY?")\> (;ﾟﾛﾟ)
+P : ("WHAT!?\n ARE YOU MICKEY?") > (;ﾟﾛﾟ)
 
 ---3
-M : (｀ε´) \<("YES. \nI AM \nMICKEY MOUSE.")
+M : (｀ε´) < ("YES. \nI AM \nMICKEY MOUSE.")
 </pre>
