@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+    #repl {
+        border: solid 2px black;
+        background-color: grey;
+        color: white;
+        padding: 5px;
+
+        display:inline-table;
+        width:98%;
+    }
+
+</style>
+<script src="./lib/jquery.js"></script>
+<script src="./lib/jqconsole.js"></script>
+<script src="./lib/sugar.js"></script>
+<script src="./lib/peg.js"></script>
+<script src="./lib/plt.js"></script>
+<script src="./ComicStripScript.js"></script>
+
+<title>ComicStripScript.js</title>
+</head>
+
+<body>
+
+<grammar>
+start = title cast panels+ {ComicStripScript.run(ComicStripScript.tree)}
+
+title = sp '---TITLE' sp t:titleString sp {ComicStripScript.tree.title = t;}
+titleString = s:[^\n]* sp {return s.join("")}
+
+cast = sp '---CAST' starring
+starring = sp c:casts* sp {ComicStripScript.addToCasts(c);}
+casts = sp 'Starring' space path:string space 'as' space name:string sp {return {name:name, path:path}}
+
+panels = sp '---' i:[0-9]+ sp contents:(left/right)+ sp { ComicStripScript.addToPanels(parseInt(i), contents);}
+left  = sp name:string sp ':' sp   emoticon:emoticon        space   '<(' caption:caption ')' {return {name:name, caption:caption, emoticon:emoticon, direction:"left"} }
+right = sp name:string sp ':' sp   '(' caption:caption ')>' space   emoticon:emoticon        {return {name:name, caption:caption, emoticon:emoticon, direction:"right"} }
+caption = '"' s:[^"]* '"' {return s.join("")}
+emoticon = s:[^ \n]+ {return s.join("")}
+
+sp = [ \n]*
+space = ' '
+string = s:[a-zA-Z0-9'"]* {return s.join("")}
+number = d:[0-9\.-]+ sp {return parseFloat(d.join(""));}
+
+</grammar>
+
+<code>
+---TITLE
+Mickey's day
+
+---CAST
+Starring mickey as M
+Starring pikachu as P
+
+---1
+M : ('-') <("HELLO \nMY NAME IS \nMICKEY.")
+
+---2
+M : ("WHAT!?\n ARE YOU MICKEY?")> (;ﾟﾛﾟ)
+
+---3
+M : (｀ε´) <("YES. \nI AM \nMICKEY MOUSE.")
+
+</code>
+
+
+<div id="comic"></div>
+</body>
+</html>
