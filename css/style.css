@@ -1,0 +1,68 @@
+body {
+	margin: 0;
+	padding: 0;
+	top:0;
+	left:0;
+	font-family: "Comic Sans MS", cursive, sans-serif !important;
+	background: url("http://www.ellasher.com/static/img/paper_background.jpg");
+}
+
+#about{
+	text-align: center;
+}
+
+#trial{
+	position: absolute;
+	margin-top:50px;
+	width: 100%;
+	margin-bottom:100px;
+}
+
+
+#comic{
+	position: absolute;
+	left: 0;
+	width: 50%;
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+#comic .save_btn{
+	position: absolute;
+	left: 50%;
+	margin-left: -150px;
+	width: 300px;
+	height: 26px;
+	cursor: pointer;
+	text-align: center;
+	border: black solid 2px;
+	background: rgba(255,255,255,0.5);
+	margin-top:5px;
+}
+
+#code{
+	position: absolute;
+	left: 50%;
+	width: 50%;
+}
+
+#code textarea{
+	width: 96%;
+	margin-top: 10px;
+	font-family: "Lucida Console", Monaco, monospace;
+	font-size: 15px;
+	overflow: scroll;
+	border: black solid 2px;
+
+}
+
+#code .parse_btn{
+	width: 95%;
+	height: 26px;
+	cursor: pointer;
+	text-align: center;
+	border: black solid 2px;
+	background: rgba(255,255,255,0.5);
+	margin-top:10px;
+}
+

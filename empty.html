@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>ComicStripScript.js</title>
+	<title>empty</title>
 	<script src="./lib/jquery.js"></script>
 	<script src="./lib/jqconsole.js"></script>
 	<script src="./lib/sugar.js"></script>
@@ -40,87 +40,8 @@ number = d:[0-9\.-]+ sp {return parseFloat(d.join(""));}
 </grammar>
 <!-- *************************************************************************************************************** -->
 
-<div id="about">
-	<h1>ComicStripScript</h1>
-	<h4>ComicStripScript is a javascript-based language which allows you to draw a comic strip with emoticons and speech bubbles.</h4>
-</div>
-
-<div id="trial">
-	<div id="comic"></div>
-	<div id="code">
-		<div id="description">
-			<b>Syntax</b><br/>
-			Who : Expression <("Caption") <br/>
-			A : ('-') <("make sure to have a space between Expression and the speech bubble.")<br/>
-			<br/>
-			You can refer the emoticon-table for Expression.<br/>
-			Currently 5 expressions are available.
-			<table>
-				<tr>
-					<th>Index</th>
-					<th>|</th>
-					<th>Expression</th>
-				</tr>
-				<tr>
-					<th>0</th>
-					<th>|</th>
-					<th>('-')</th>
-				</tr>
-				<tr>
-					<th>1</th>
-					<th>|</th>
-					<th>(;ﾟﾛﾟ)</th>
-				</tr>
-				<tr>
-					<th>2</th>
-					<th>|</th>
-					<th>(^o^)</th>
-				</tr>
-				<tr>
-					<th>3</th>
-					<th>|</th>
-					<th>(｀ε´)</th>
-				</tr>
-				<tr>
-					<th>4</th>
-					<th>|</th>
-					<th>(･_･)</th>
-				</tr>
-			</table>
-			<br/>
-			More documentation is coming soon. Source codes are on <a href="https://github.com/yukiy/ComicStripScript">github</a>.<br/>
-			<br/>
-			It is aiming to be turing complete as much as possible. <br/>
-			Loop, if, random functions will be implemented in the next update.
-		</div>
-
-		<br/>
-
-		<div class="parse_btn" type="button">DRAW YOUR COMIC STRIP</div>
-		<textarea id="code_input" cols=40 rows=40 style="opacity:100">
----TITLE
-Mickey's day
-
----CAST
-Starring mickey as M
-
----
-M : ('-') <("HELLO \nMY NAME IS \nMICKEY.")
-
----
-M : ("WHAT!?\n ARE YOU MICKEY?")> (;ﾟﾛﾟ)
-
----
-M : (｀ε´) <("YES. \nI AM \nMICKEY MOUSE.")
-M : ("")> (･_･)
-
-
-		</textarea>
-		<div class="parse_btn" type="button">DRAW YOUR COMIC STRIP</div>
-	</div>
-</div>
-
-
+<div id="comic"></div>
 
 </body>
+
 </html>

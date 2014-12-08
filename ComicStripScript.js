@@ -1,9 +1,16 @@
+//---to debug make it 1, tree for test is at the bottom;
 var test = 0;
+
 var ComicStripScript = {
 	tree : {
 		title: '',
 		cast : [],
-		panels : [{index:0, cast:"this is dummy"}]
+		panels : [{cast:"this is dummy"}]
+	},
+
+	draw : function(source){
+		$('#comic').empty();
+		PLT.fn.parseCodesFromString(source);
 	},
 
 
@@ -18,6 +25,7 @@ var ComicStripScript = {
 	],
 
 	run : function(_tree){
+
 		console.log(_tree);
 		var tree = {};
 		if(_tree && test==0){
@@ -29,14 +37,17 @@ var ComicStripScript = {
 
 		this.setupCanvas();
 		this.createPanels(tree);
+
+		//---reset tree
+		this.tree = {title:'', cast:[], panels:[{cast:"this is dummy"}]};
 	},
 
 	addToCasts : function(arr){
 		this.tree.cast = arr;
 	},
 
-	addToPanels : function(index, cast){
-		this.tree.panels.push({index:index, cast:cast});
+	addToPanels : function(cast){
+		this.tree.panels.push({cast:cast});
 	},
 
 
@@ -54,19 +65,21 @@ var ComicStripScript = {
 		this.drawTitle(obj.title);
 		//for(var i=0; i<obj.panels.length; i++){
 		for(var i=1; i<obj.panels.length; i++){
-			this.createPanel(obj.panels[i]);
+			this.createPanel(i, obj.panels[i]);
 		}
 	},
 
-	createPanel : function (panelTree){
-		var index = panelTree.index-1; //---ComicStripScript index starts from 1
-//		var index = panelTree.index; //---ComicStripScript index starts from 1
+	createPanel : function (i, panelTree){
+		var index = i-1; //---ComicStripScript index starts from 1
 		this.drawFrame(index);
 		var cast = panelTree.cast;
 
 		for(var i = 0; i<cast.length; i++){
 			this.drawCharacter(index, cast[i].name, cast[i].emoticon, cast[i].direction);
-			this.drawSpeech(index, cast[i].caption);
+			console.log(cast[i].caption.length);
+			if(cast[i].caption.length > 0){
+				this.drawSpeech(index, cast[i].caption);
+			}
 		}
 	},
 
@@ -129,7 +142,6 @@ var ComicStripScript = {
 		var top = (this.panelMarginH + this.titleH + this.panelMarginH) + (index * this.panelH) + (index * this.panelMarginH);
 
 		var img = new Image();
-//		img.src = characters[character][expression];
 		img.src = './characters/'+path+filename;
 		console.log(img.src);
 		img.onload = function(){
@@ -188,10 +200,10 @@ var ComicStripScript = {
 			this.ctx.lineTo(bubbleX+bubbleW - bubbleW/3, bubbleY + bubbleH);
 		}
 		//---draw rest
-		this.ctx.lineTo(bubbleX         + bubbleR,   bubbleY + bubbleH);//---to left bottom
-		this.ctx.arc   (bubbleX         + bubbleR,   bubbleY + bubbleH - bubbleR, bubbleR, Math.PI*0.5, Math.PI, false);
-		this.ctx.lineTo(bubbleX,                     bubbleY + bubbleR);//---to left top
-		this.ctx.arc   (bubbleX         + bubbleR,   bubbleY + bubbleR,           bubbleR, Math.PI, Math.PI*1.5, false);
+		this.ctx.lineTo(bubbleX   + bubbleR,   bubbleY + bubbleH);//---to left bottom
+		this.ctx.arc   (bubbleX   + bubbleR,   bubbleY + bubbleH - bubbleR, bubbleR, Math.PI*0.5, Math.PI, false);
+		this.ctx.lineTo(bubbleX,               bubbleY + bubbleR);//---to left top
+		this.ctx.arc   (bubbleX   + bubbleR,   bubbleY + bubbleR,           bubbleR, Math.PI, Math.PI*1.5, false);
 		this.ctx.closePath();
 		this.ctx.lineWidth = 3;
 		this.ctx.strokeStyle = 'black';
@@ -218,7 +230,7 @@ var ComicStripScript = {
 		if(canvasDiv == null) return;
 		this.canvas = document.createElement('canvas');
 		this.canvas.height = this.panelMarginH + this.titleH + this.panelMarginH + (this.panelH * this.panelNum) + (this.panelMarginH * this.panelNum);
-		this.canvas.width = this.panelW + 100;
+		this.canvas.width = this.panelW+this.panelMarginW*2;
 		canvasDiv.appendChild(this.canvas);
 
 		this.ctx = this.canvas.getContext('2d');
@@ -227,21 +239,8 @@ var ComicStripScript = {
 }
 
 
-
-// var characters = {
-// 	"mickey" : {
-// 		normal : "./characters/mickey/normal.png",
-// 		happy : "./characters/mickey/happy.png",
-// 		angry : "./characters/mickey/angry.png",
-// 		worried : "./characters/mickey/worried.png",
-// 		surprise : "./characters/mickey/surprise.png",
-// 		etc : "./characters/mickey/mmm.png"
-// 	}
-// }
-
-
 var testTree = {
-	title : "Mickey's day",
+	title : "I'm Testing",
 	cast : [
 		{
 			name: "M",
@@ -258,7 +257,6 @@ var testTree = {
 			cast : "dummy"
 		},
 		{
-			index : 1,
 			cast : [
 				{
 					name : "M",
@@ -270,7 +268,6 @@ var testTree = {
 			]
 		},
 		{
-			index : 2,
 			cast : [
 				{
 					name : "M",
@@ -282,7 +279,6 @@ var testTree = {
 			]
 		},
 		{
-			index : 3,
 			cast : [
 				{
 					name : "M",
@@ -295,10 +291,4 @@ var testTree = {
 		}
 	]
 }
-
-
-
-$(function(){
-
-})
 
