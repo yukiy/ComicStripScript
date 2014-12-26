@@ -95,74 +95,61 @@ ComicStripScript is a javascript-based language you can write a code with emotic
 	<table>
 		<tr>
 			<th>Index</th>
-			<th>|</th>
 			<th>Expression</th>
 		</tr>
 		<tr>
 			<th>0</th>
-			<th>|</th>
 			<th>('-')</th>
 		</tr>
 		<tr>
 			<th>1</th>
-			<th>|</th>
 			<th>(;ﾟﾛﾟ)</th>
 		</tr>
 		<tr>
 			<th>2</th>
-			<th>|</th>
 			<th>(^o^)</th>
 		</tr>
 		<tr>
 			<th>3</th>
-			<th>|</th>
 			<th>(｀ε´)</th>
 		</tr>
 		<tr>
 			<th>4</th>
-			<th>|</th>
 			<th>(･_･)</th>
 		</tr>
 		<tr>
 			<th>5</th>
-			<th>|</th>
 			<th>(:_;)</th>
 		</tr>
 
 		<tr>
-			<th>-</th>
 			<th>-</th>
 			<th>*Additional Expression</th>
 		</tr>
 
 		<tr>
 			<th>100</th>
-			<th>|</th>
 			<th>ʕ•̫͡•ʕ*̫͡*ʕ•͓͡•ʔ-̫͡-ʕ•̫͡•ʔ*̫͡*ʔ-̫͡-ʔ</th>
 		</tr>
 		<tr>
 			<th>101</th>
-			<th>|</th>
 			<th>((⊂(`ω´∩)</th>
 		</tr>
 		<tr>
 			<th>102</th>
-			<th>|</th>
 			<th>(;´༎ຶД༎ຶ`)</th>
 		</tr>
 		<tr>
 			<th>103</th>
-			<th>|</th>
 			<th>(๑˃̶ꇴ˂̶)♪⁺</th>
 		</tr>
 		<tr>
 			<th>104</th>
-			<th>|</th>
 			<th>ฅ^•ﻌ•^ฅ</th>
 		</tr>
 	</table>
 	<br/>
-	*As advanced option, you can build your emoticon table by modifying ComicStripScript.js. User Emoticons's id starts from 100.<br/>
+	*As an advanced option, you can build your emoticon table by modifying ComicStripScript.js. User Emoticons's id starts from 100.<br/>
 	<br/>
 	More default expressions will be added in future. It's aiming to have compatibilities between characters, so you can easily change the character with same scripts.<br/>
 </div>
