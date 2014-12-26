@@ -2,8 +2,9 @@
 ComicStripScript
 ---
 
-
 ComicStripScript is a javascript-based language you can write a code with emoticons and speech bubbles.
+
+<div>
 	<p><strong>Define the title</strong></p>
 
 	<pre><code>
@@ -42,42 +43,33 @@ ComicStripScript is a javascript-based language you can write a code with emotic
 <div>
 	<p><strong>Draw characters</strong></p>
 
-	Left-pointing
+	Right-pointing
 	<pre><code>
 	<i>character_name_you_define</i> : <i>emoticon</i> <(" <i>script</i> ")
 	</code></pre>
 
-	Right-pointing
+	Left-pointing
 	<pre><code>
 	<i>character_name_you_define</i> : (" <i>script</i> ")> <i>emoticon</i>
 	</code></pre>
 
-	*Use <code>\n</code> to break the line.<br/>
+	*Use <code>\n</code> for line break.<br/>
 	*Available emoticons are <a href="#emoticontable">here</a>
 	<br/>
 
 </div>
 
 <div>
+	<br/>
 	<p><strong>Divide scene</strong></p>
 	<pre><code>
 	---
 	</code></pre>
 
 	example:
-	<pre><code>
-	---
-	M : ('-') <("HELLO \nMY NAME IS \nMICKEY.")
-
-	---
-	M : ("WHAT!?\n ARE YOU MICKEY?")> (;ﾟﾛﾟ)
-
-	---
-	M : (｀ε´) <("YES. \nI AM \nMICKEY MOUSE.")
-	M : ("")> (･_･)
-
-	</code></pre>
-
+	<br/>
+	<img src="./img/doc_script.png">
+	<br/>
 </div>
 
 
@@ -179,28 +171,10 @@ ComicStripScript is a javascript-based language you can write a code with emotic
 
 <div>
 	<strong>Full example with User Emoticons</strong><br/>
-	<pre><code>
-	---TITLE
-	I LOVE CATS
+	<br/>
+	<img src="./img/doc_full.png">
+	<br/>
 
-	---CAST
-	Starring harmony as H
-	Starring cat as C
-	Starring godofcats as GC
-
-
-	---
-	H : (๑˃̶ꇴ˂̶)♪⁺ <("I LOVE CATS♡")
-
-	---
-	C : ("Nyan")> ฅ^•ﻌ•^ฅ
-
-	---
-	H : (;´༎ຶД༎ຶ`) <("I LOVE.. \nI LOVE CATS \nTOO MUCH..")
-
-	---
-	GC:("MAY THE CATS \nWITH YOU")> ʕ•̫͡•ʕ*̫͡*ʕ•͓͡•ʔ-̫͡-ʕ•̫͡•ʔ*̫͡*ʔ-̫͡-ʔ
-	</code></pre>
 
 	<br/>
 	To start building your own, write codes between &lt;code id="comicsource"&gt; &lt;/code&gt; in empty.html
