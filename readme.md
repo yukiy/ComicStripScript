@@ -2,37 +2,8 @@
 ComicStripScript
 ---
 
+
 ComicStripScript is a javascript-based language you can write a code with emoticons and speech bubbles.
-
-<style>
-	body{
-		font-family: "Comic Sans MS", cursive, sans-serif;
-	}
-	pre {
-		background: #EEEEEE;
-	}
-
-	hr{
-		margin-top: 50px;
-		margin-bottom: 50px;
-	}
-
-	i{
-		color: #0000AA;
-	}
-
-	th{
-		font-weight: normal;
-	}
-
-	div{
-		margin: 30px;
-	}
-</style>
-
-<body>
-<h1>ComicStriptScript Documentation</h1>
-<div>
 	<p><strong>Define the title</strong></p>
 
 	<pre><code>
@@ -236,7 +207,3 @@ ComicStripScript is a javascript-based language you can write a code with emotic
 </div>
 
 
-
-
-
-</body>
