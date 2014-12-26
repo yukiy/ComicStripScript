@@ -17,12 +17,24 @@ var ComicStripScript = {
 //---functions for grammar-----
 
 	emoticon : [
-		"('-')",	//0
-		'(;ﾟﾛﾟ)',	//1
-		'(^o^)',	//2
-		'(｀ε´)',	//3
-		'(･_･)'		//4
+		"('-')",		//0
+		'(;ﾟﾛﾟ)',		//1
+		'(^o^)',		//2
+		'(｀ε´)',		//3
+		'(･_･)',			//4
+		'(:_;)'		//5
 	],
+
+	userEmoticon : [
+		'ʕ•̫͡•ʕ*̫͡*ʕ•͓͡•ʔ-̫͡-ʕ•̫͡•ʔ*̫͡*ʔ-̫͡-ʔ', //100
+		'((⊂(`ω´∩)',	//101
+		'(;´༎ຶД༎ຶ`)',		//102
+		'(๑˃̶ꇴ˂̶)♪⁺', //103
+		'ฅ^•ﻌ•^ฅ'	//104
+	],
+	/*---For more emoticons
+	http://emojicons.com/
+	*/
 
 	run : function(_tree){
 
@@ -76,7 +88,7 @@ var ComicStripScript = {
 
 		for(var i = 0; i<cast.length; i++){
 			this.drawCharacter(index, cast[i].name, cast[i].emoticon, cast[i].direction);
-			console.log(cast[i].caption.length);
+			//console.log(cast[i].caption.length);
 			if(cast[i].caption.length > 0){
 				this.drawSpeech(index, cast[i].caption);
 			}
@@ -129,21 +141,28 @@ var ComicStripScript = {
 		}
 
 		//---get image from emoticon
-		var filename;
+		var filename = '';
 		for(var i=0; i<this.emoticon.length; i++){
-		console.log(this.emoticon[i]);
-
+			//console.log(i + ": " +this.emoticon[i]);
 			if(this.emoticon[i] == emoticon){
 				filename = i + '.png';
 			}
 		}
+
+		for(var i=0; i<this.userEmoticon.length; i++){
+			//console.log(parseInt(100+i) + ": " +this.userEmoticon[i]);
+			if(this.userEmoticon[i] == emoticon){
+				filename = parseInt(100+i) + '.png';
+			}
+		}
+
 		//---draw
 		var left = this.panelMarginW;
 		var top = (this.panelMarginH + this.titleH + this.panelMarginH) + (index * this.panelH) + (index * this.panelMarginH);
 
 		var img = new Image();
 		img.src = './characters/'+path+filename;
-		console.log(img.src);
+		//console.log(img.src);
 		img.onload = function(){
 			var that = ComicStripScript;
 			var ctx = that.ctx;

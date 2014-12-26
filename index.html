@@ -30,7 +30,7 @@ panels = sp '---' sp contents:(left/right)+ sp { ComicStripScript.addToPanels(co
 left  = sp name:string sp ':' sp   emoticon:emoticon        space   '<(' caption:caption ')' {return {name:name, caption:caption, emoticon:emoticon, direction:"left"} }
 right = sp name:string sp ':' sp   '(' caption:caption ')>' space   emoticon:emoticon        {return {name:name, caption:caption, emoticon:emoticon, direction:"right"} }
 caption = '"' s:[^"]* '"' {return s.join("")}
-emoticon = s:[^ \n]+ {return s.join("")}
+emoticon = s:[^ \n]+ { return s.join("")}
 
 sp = [ \n\t]*
 space = ' '
@@ -85,12 +85,18 @@ number = d:[0-9\.-]+ sp {return parseFloat(d.join(""));}
 					<th>|</th>
 					<th>(･_･)</th>
 				</tr>
+				<tr>
+					<th>5</th>
+					<th>|</th>
+					<th>(:_;)</th>
+				</tr>
 			</table>
 			<br/>
-			More documentation is coming soon. Source codes are on <a href="https://github.com/yukiy/ComicStripScript">github</a>.<br/>
+			You can add your custom emoticons but using default table is recommended to keep compatibility between characters.<br/>
+			Find out more on the <a href="./documentation.html" target="_blank">documentation</a>.
 			<br/>
-			It is aiming to be turing complete as much as possible. <br/>
-			Loop, if, random functions will be implemented in the next update.
+			<br/>
+			Loop, if, random functions will be implemented in the next updates.
 		</div>
 
 		<br/>
@@ -98,20 +104,28 @@ number = d:[0-9\.-]+ sp {return parseFloat(d.join(""));}
 		<div class="parse_btn" type="button">DRAW YOUR COMIC STRIP</div>
 		<textarea id="code_input" cols=40 rows=40 style="opacity:100">
 ---TITLE
-Mickey's day
+ONE DAY
 
 ---CAST
 Starring mickey as M
+Starring cat as C
+
 
 ---
-M : ('-') <("HELLO \nMY NAME IS \nMICKEY.")
+M : ('-') <("HELLO \nI AM THE BEST\nMOUSE IN THE WORLD.")
 
 ---
-M : ("WHAT!?\n ARE YOU MICKEY?")> (;ﾟﾛﾟ)
+C : ("I KNOW YOU.\nDOESN'T MATTER.")> (｀ε´)
 
 ---
-M : (｀ε´) <("YES. \nI AM \nMICKEY MOUSE.")
-M : ("")> (･_･)
+M : (｀ε´) <("YES. \nYOU KNOW ME? \nI AM THE BEST.")
+
+---
+
+M : (･_･) <("")
+C : ("NO MORE TALK. \nLET'S DANCE!!")> (^o^)
+
+
 
 
 		</textarea>
@@ -119,7 +133,7 @@ M : ("")> (･_･)
 	</div>
 </div>
 
-
+<a href="https://github.com/yukiy/ComicStripScript"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
 
 </body>
 </html>
